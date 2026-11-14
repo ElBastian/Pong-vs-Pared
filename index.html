@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pong vs Pared</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Fondo de galaxia animado (estrellas) -->
+    <canvas id="starfield"></canvas>
+
+    <main>
+        <h2>Entrenamiento: Pong vs Pared</h2>
+
+        <!-- Barra de información y controles -->
+        <div class="hud">
+            <span>Jugador: <b id="playerName">-</b></span>
+            <span>🏆 Récord: <b id="recordScore">0</b> <small id="recordOwner"></small></span>
+            <div class="buttons">
+                <button id="pauseBtn">⏸ Pausa</button>
+                <button id="nameBtn">✏️ Cambiar nombre</button>
+            </div>
+        </div>
+
+        <!-- Canvas de 800x450 según los requerimientos del proyecto-->
+        <canvas id="gameCanvas" width="800" height="450"></canvas>
+        <p>Usa las teclas <b>W</b> / <b>S</b> o las <b>Flechas</b> para mover la paleta · <b>P</b> o <b>Espacio</b> para pausar</p>
+    </main>
+
+    <!-- Ventana: pedir nombre -->
+    <div class="overlay" id="nameModal">
+        <form class="modal" id="nameForm">
+            <h3>¿Cómo te llamas?</h3>
+            <input type="text" id="nameInput" maxlength="15" placeholder="Tu nombre" autocomplete="off" required>
+            <button type="submit">Jugar</button>
+        </form>
+    </div>
+
+    <!-- Ventana: fin del juego -->
+    <div class="overlay hidden" id="gameOverModal">
+        <div class="modal">
+            <h3>¡Perdiste!</h3>
+            <p class="final">Puntaje: <b id="finalScore">0</b></p>
+            <h4>Top 3 mejores puntajes</h4>
+            <ol id="topScores"></ol>
+            <button id="restartBtn">Jugar de nuevo</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
